@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: ./ShelkovyPut_Main
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - database
+    environment:    
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=database;Database=YourDatabaseName;User=sa;Password=nguyenquocbinh214@BB;
+  
+  database:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "nguyenquocbinh214@BB"
+    ports:
+      - "1433:1433"

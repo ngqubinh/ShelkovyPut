@@ -1,0 +1,17 @@
+﻿@page
+@model Application.ViewModels.Setting.CategoryForExcelImportVM
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Upload Excel File</title>
+</head>
+<body>
+    <h2>Upload Excel File</h2>
+    <form asp-action="ImportExcel" asp-controller="Excel" enctype="multipart/form-data" method="post">
+        <input type="file" name="file" />
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
